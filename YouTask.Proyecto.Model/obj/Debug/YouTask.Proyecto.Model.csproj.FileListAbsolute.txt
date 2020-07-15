@@ -1,0 +1,5 @@
+D:\Ejercicios de java\CRUD_.netFramework_Angular\YouTask.Proyecto.Model\YouTask.Proyecto.Model\bin\Debug\YouTask.Proyecto.Model.dll
+D:\Ejercicios de java\CRUD_.netFramework_Angular\YouTask.Proyecto.Model\YouTask.Proyecto.Model\bin\Debug\YouTask.Proyecto.Model.pdb
+D:\Ejercicios de java\CRUD_.netFramework_Angular\YouTask.Proyecto.Model\YouTask.Proyecto.Model\obj\Debug\YouTask.Proyecto.Model.csproj.CoreCompileInputs.cache
+D:\Ejercicios de java\CRUD_.netFramework_Angular\YouTask.Proyecto.Model\YouTask.Proyecto.Model\obj\Debug\YouTask.Proyecto.Model.dll
+D:\Ejercicios de java\CRUD_.netFramework_Angular\YouTask.Proyecto.Model\YouTask.Proyecto.Model\obj\Debug\YouTask.Proyecto.Model.pdb
