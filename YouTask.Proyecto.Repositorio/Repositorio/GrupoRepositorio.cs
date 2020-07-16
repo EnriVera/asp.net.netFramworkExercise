@@ -33,9 +33,18 @@ namespace YouTask.Proyecto.Repositorio.Repositorio
             grupoEntidad.ForEach(f =>
             {
                 f.Task = this.taskRepositorio.ObtenerUnaTarea(f.ID);
+
+                f.Administrador = ObtenerAdministrador(f, person);
             });
 
             return grupoEntidad;
+        }
+
+        public PersonEntidades ObtenerAdministrador(GrupoEntidades grupoEntidades, PersonEntidades personEntidades)
+        {
+            grupo_personDTO grupo_Person = this.DBContext.grupo_person.SingleOrDefault(e => e.id_grupo1 == grupoEntidades.ID && e.id_person1 == personEntidades.ID);
+
+            return this._mapper.Map<PersonEntidades>(this.DBContext.person.Find(grupo_Person.id_person_administrador));
         }
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="Entidades\GrupoTaskEntidades.cs" />
     <Compile Include="Entidades\PersonEntidades.cs" />
     <Compile Include="Entidades\TaskEntidades.cs" />
+    <Compile Include="Interfaz\IGrupoPersonRepositorio.cs" />
     <Compile Include="Interfaz\IGrupoRepositorio.cs" />
     <Compile Include="Interfaz\IGrupoTaskRepositorio.cs" />
     <Compile Include="Interfaz\IPersonRepositorio.cs" />

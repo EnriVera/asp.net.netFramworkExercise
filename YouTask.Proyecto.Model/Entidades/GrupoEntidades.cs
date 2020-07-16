@@ -12,6 +12,7 @@ namespace YouTask.Proyecto.Model.Entidades
         public string Titulo { get; set; }
         public string Descripcion { get; set; }
         public byte[] Imagen { get; set; }
+        public PersonEntidades Administrador { get; set; }
         public List<TaskEntidades> Task { get; set; }
     }
 }
