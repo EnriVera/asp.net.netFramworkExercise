@@ -152,6 +152,8 @@
   <ItemGroup>
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\GrupoController.cs" />
+    <Compile Include="Controllers\GrupoPersonController.cs" />
     <Compile Include="Controllers\GrupoTaskController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\TaskController.cs" />

@@ -76,54 +76,48 @@ namespace YouTask.Proyecto.Repositorio.Repositorio
             return personEntidads;
         }
 
-        public PersonEntidades PostPerson(PersonEntidades salaEntidad)
+        public PersonEntidades PostPerson(PersonEntidades personEntidades)
         {
-            var valor = this.DBContext.person.SingleOrDefault(e => e.email_person == salaEntidad.Email);
+            var valor = this.DBContext.person.SingleOrDefault(e => e.email_person == personEntidades.Email);
 
             if (valor != null) return null;
 
-            personDTO person = this._mapper.Map<personDTO>(salaEntidad);
+            personDTO person = this._mapper.Map<personDTO>(personEntidades);
 
             this.DBContext.person.Add(person);
             //_ = Guardar();
             this.DBContext.SaveChanges();
 
-            var valorperson = this.DBContext.person.SingleOrDefault(e => e.email_person == salaEntidad.Email);
+            var valorperson = this.DBContext.person.SingleOrDefault(e => e.email_person == personEntidades.Email);
 
             return this._mapper.Map<PersonEntidades>(valorperson);
         }
 
-        public PersonEntidades PutPerson(PersonEntidades salaEntidad)
+        public PersonEntidades PutPerson(PersonEntidades personEntidades)
         {
-            var dataPerson = this.DBContext.person.FirstOrDefault(x => x.id_person == salaEntidad.ID);
+            var dataPerson = this.DBContext.person.FirstOrDefault(x => x.id_person == personEntidades.ID);
 
             if (dataPerson == null) return null;
 
-            personDTO person = MapperSalaUpdate(salaEntidad);
+            personDTO person = MapperPersonUpdate(personEntidades);
             //_ = Guardar();
             this.DBContext.SaveChanges();
 
             return new PersonEntidades();
         }
 
-
-        private async Task Guardar()
+        private personDTO MapperPersonUpdate(PersonEntidades personEntidades)
         {
-            await this.DBContext.SaveChangesAsync();
-        }
+            var personDto = this.DBContext.person.FirstOrDefault(x => x.id_person == personEntidades.ID);
 
-        private personDTO MapperSalaUpdate(PersonEntidades salaData)
-        {
-            var salaDto = this.DBContext.person.FirstOrDefault(x => x.id_person == salaData.ID);
-
-            salaDto.id_person = salaData.ID;
-            salaDto.name_person = salaData.Nombre;
-            salaDto.lastname_person = salaData.Apellido;
-            salaDto.email_person = salaData.Email;
-            salaDto.passwork_person = salaData.Passwork;
-            salaDto.image_person = salaData.Imagen;
-            salaDto.description_person = salaData.Descripcion;
-            return salaDto;
+            personDto.id_person = personEntidades.ID;
+            personDto.name_person = personEntidades.Nombre;
+            personDto.lastname_person = personEntidades.Apellido;
+            personDto.email_person = personEntidades.Email;
+            personDto.passwork_person = personEntidades.Passwork;
+            personDto.image_person = personEntidades.Imagen;
+            personDto.description_person = personEntidades.Descripcion;
+            return personDto;
         }
     }
 }

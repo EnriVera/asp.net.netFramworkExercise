@@ -26,6 +26,7 @@ namespace YouTask.Proyecto.WebApi
             container.RegisterType<ITaskRepositorio, TaskRepositorio>();
             container.RegisterType<IGrupoRepositorio, GrupoRepositorio>();
             container.RegisterType<IGrupoTaskRepositorio, GrupoTaskRepositorio>();
+            container.RegisterType<IGrupoPersonRepositorio, GrupoPersonRepositorio>();
 
             var locator = new UnityServiceLocator(container);
             ServiceLocator.SetLocatorProvider(() => locator);

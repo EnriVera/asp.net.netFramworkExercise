@@ -100,6 +100,7 @@
     <Compile Include="DTO\YouTaskDBContext.cs" />
     <Compile Include="MapperConfig\MappingProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\GrupoPersonRepositorio.cs" />
     <Compile Include="Repositorio\GrupoRepositorio.cs" />
     <Compile Include="Repositorio\GrupoTaskRepositorio.cs" />
     <Compile Include="Repositorio\PersonRepositorio.cs" />

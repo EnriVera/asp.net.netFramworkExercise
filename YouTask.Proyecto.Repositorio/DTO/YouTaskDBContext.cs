@@ -4,6 +4,7 @@ namespace YouTask.Proyecto.Repositorio.DTO
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using System.Data.Entity.ModelConfiguration.Conventions;
 
     public partial class YouTaskDBContext : DbContext
     {
@@ -20,6 +21,7 @@ namespace YouTask.Proyecto.Repositorio.DTO
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Entity<grupoDTO>()
                 .HasMany(e => e.grupo_person)
                 .WithOptional(e => e.grupo)

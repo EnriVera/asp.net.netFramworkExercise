@@ -13,6 +13,9 @@ namespace YouTask.Proyecto.Repositorio.MapperConfig
     {
         public MappingProfile()
         {
+
+            // Person
+
             CreateMap<personDTO, PersonEntidades>()
                 .ForMember(dest => dest.ID, opt => opt.MapFrom(src => src.id_person))
                 .ForMember(dest => dest.Nombre, opt => opt.MapFrom(src => src.name_person))
@@ -32,6 +35,7 @@ namespace YouTask.Proyecto.Repositorio.MapperConfig
                 .ForMember(dest => dest.image_person, opt => opt.MapFrom(src => src.Imagen))
                 .ForMember(dest => dest.description_person, opt => opt.MapFrom(src => src.Descripcion));
 
+            // Task
 
             CreateMap<TaskEntidades, taskDTO>()
                 .ForMember(dest => dest.title_task, opt => opt.MapFrom(src => src.Titulo))
@@ -54,6 +58,8 @@ namespace YouTask.Proyecto.Repositorio.MapperConfig
                 .ForMember(dest => dest.Imagen, opt => opt.MapFrom(src => src.image_task))
                 .ForMember(dest => dest.IDPerson, opt => opt.MapFrom(src => src.id_person2));
 
+            // Grupo
+
             CreateMap<grupoDTO, GrupoEntidades>()
                 .ForMember(dest => dest.ID, opt => opt.MapFrom(src => src.id_grupo))
                 .ForMember(dest => dest.Titulo, opt => opt.MapFrom(src => src.title_grupo))
@@ -67,6 +73,8 @@ namespace YouTask.Proyecto.Repositorio.MapperConfig
                 .ForMember(dest => dest.description_grupo, opt => opt.MapFrom(src => src.Descripcion))
                 .ForMember(dest => dest.image_grupo, opt => opt.MapFrom(src => src.Imagen));
 
+            // Grupo task
+
             CreateMap<GrupoTaskEntidades, grupo_taskDTO>()
                 .ForMember(dest => dest.id_grupo2, opt => opt.MapFrom(src => src.IDGrupo))
                 .ForMember(dest => dest.id_task1, opt => opt.MapFrom(src => src.IDTask))
@@ -76,6 +84,18 @@ namespace YouTask.Proyecto.Repositorio.MapperConfig
                 .ForMember(dest => dest.IDGrupo, opt => opt.MapFrom(src => src.id_grupo2))
                 .ForMember(dest => dest.IDTask, opt => opt.MapFrom(src => src.id_task1))
                 .ForMember(dest => dest.IDPersonColocador, opt => opt.MapFrom(src => src.id_person_colocador));
+
+            // Grupo Person
+
+            CreateMap<grupo_personDTO, GrupoPersonEntidades>()
+                .ForMember(dest => dest.IDGrupo, opt => opt.MapFrom(src => src.id_grupo1))
+                .ForMember(dest => dest.IDPerson, opt => opt.MapFrom(src => src.id_person1))
+                .ForMember(dest => dest.IDPersonAdministrador, opt => opt.MapFrom(src => src.id_person_administrador));
+
+            CreateMap<GrupoPersonEntidades, grupo_personDTO>()
+                .ForMember(dest => dest.id_grupo1, opt => opt.MapFrom(src => src.IDGrupo))
+                .ForMember(dest => dest.id_person1, opt => opt.MapFrom(src => src.IDPerson))
+                .ForMember(dest => dest.id_person_administrador, opt => opt.MapFrom(src => src.IDPersonAdministrador));
         }
     }
 }

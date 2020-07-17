@@ -9,7 +9,7 @@ namespace YouTask.Proyecto.Model.Interfaz
 {
     public interface IGrupoPersonRepositorio
     {
-        void AgregarGrupoPerson(GrupoPersonEntidades grupoPersonEntidades);
-        GrupoPersonEntidades EliminarGrupoPerson(int id);
+        bool AgregarGrupoPerson(GrupoPersonEntidades grupoPersonEntidades);
+        bool EliminarGrupoPerson(int IDGrupo, int IDPerson);
     }
 }
