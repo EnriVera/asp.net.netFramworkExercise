@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper.Configuration.Annotations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -18,6 +19,15 @@ namespace YouTask.Proyecto.WebApi.Controllers
             if (taskRepositorio == null)
                 throw new ArgumentNullException("repository error");
             this.taskRepositorio = taskRepositorio;
+        }
+
+        [HttpGet]
+        [Route("api/task/getTask")]
+        public IHttpActionResult GetTask(int grupo)
+        {
+            List<TaskEntidades> task = this.taskRepositorio.ObtenerTareasDeUnGrupo(grupo);
+            if (task == null) return NotFound();
+            return Ok(task);
         }
 
         [HttpPost]
@@ -40,6 +50,17 @@ namespace YouTask.Proyecto.WebApi.Controllers
 
             var taskValor = this.taskRepositorio.Modificartarea(taskEntidad);
             if (taskValor == null) return NotFound();
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        [HttpPatch]
+        [Route("api/task/modificarTitulotask")]
+        public IHttpActionResult ModificarTituloTask(int id, string titulo)
+        {
+            var resultadoTask = this.taskRepositorio.ModificarTitulo(id, titulo);
+
+            if (resultadoTask == false) return NotFound();
+
             return StatusCode(HttpStatusCode.NoContent);
         }
 

@@ -36,7 +36,7 @@ namespace YouTask.Proyecto.Repositorio.Repositorio
             List<GrupoEntidades> grupoEntidad = this._mapper.Map<List<GrupoEntidades>>(valor);
             grupoEntidad.ForEach(f =>
             {
-                f.Task = this.taskRepositorio.ObtenerUnaTarea(f.ID);
+                f.Task = this.taskRepositorio.ObtenerTareasDeUnGrupo(f.ID);
 
                 f.Administrador = ObtenerAdministrador(f, person);
             });

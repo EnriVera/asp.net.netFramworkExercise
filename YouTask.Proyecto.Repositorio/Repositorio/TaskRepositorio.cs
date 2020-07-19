@@ -22,7 +22,7 @@ namespace YouTask.Proyecto.Repositorio.Repositorio
             this._mapper = mapper;
             this.grupoTaskRepositorio = new GrupoTaskRepositorio(mapper);
         }
-        public List<TaskEntidades> ObtenerUnaTarea(int idGrupo)
+        public List<TaskEntidades> ObtenerTareasDeUnGrupo(int idGrupo)
         {
             var data = (from valor in this.DBContext.grupo_task
                         where valor.id_grupo2 == idGrupo
@@ -58,6 +58,17 @@ namespace YouTask.Proyecto.Repositorio.Repositorio
             //_ = Guardar();
             this.DBContext.SaveChanges();
             return new TaskEntidades();
+        }
+
+        public bool ModificarTitulo(int id, string titulo)
+        {
+            taskDTO task = this.DBContext.task.Find(id);
+            if (task == null) return false;
+
+            task.title_task = titulo;
+            this.DBContext.SaveChanges();
+
+            return true;
         }
 
         public TaskEntidades AgregaTarea(TaskEntidades taskEntidad)

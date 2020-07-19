@@ -9,11 +9,13 @@ namespace YouTask.Proyecto.Model.Interfaz
 {
     public interface ITaskRepositorio
     {
-        List<TaskEntidades> ObtenerUnaTarea(int idGrupo);
+        List<TaskEntidades> ObtenerTareasDeUnGrupo(int idGrupo);
 
         TaskEntidades EliminarTarea(int id);
 
         TaskEntidades Modificartarea(TaskEntidades taskEntidad);
+
+        bool ModificarTitulo(int id, string titulo);
 
         TaskEntidades AgregaTarea(TaskEntidades taskEntidad);
 
